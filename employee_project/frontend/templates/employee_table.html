@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Employee Enrollment</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Mobile_no</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees_table%}
+
+        <tr>
+            <td>{{employee.fullname}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.mobile_no}}</td>
+            <td>{{employee.role}}</td>
+            <td>{{employee.location}}</td>
+            <td>
+                <a href="{% url 'employeeupdate' employee.id %}">
+                    <button>Update</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'employeedelete' employee.id %}">  
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock  %}

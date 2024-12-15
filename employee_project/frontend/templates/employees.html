@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Employee Enrollment</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{employee_form}}
+    <input type="submit" value="add Employee">
+
+</form>
+
+{% endblock %}
